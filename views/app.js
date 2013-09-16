@@ -34,7 +34,7 @@ app_router.on('route:pay', function(key) {
 }); // End /pay/id
 
 app_router.on('route:defaultRoute', function(actions) {
- 	
+ 
 }) 
 
 Backbone.history.start();
