@@ -17,3 +17,21 @@ While I usually use laravel for my larger projects, I often have a need for a su
 - Super simple view processing with EJS
 - No mod-rewrite needed
 
+###Requirements
+
+**Composer** PHP Library Manager http://getcomposer.org
+
+Install Composer:
+    curl -sS https://getcomposer.org/installer | php
+
+###Installing Backstrap
+
+####Download 
+
+   git clone git@github.com:brandoncorbin/php-backstrap.git my-project
+
+####Installing
+
+   php composer.phar install
+
+
