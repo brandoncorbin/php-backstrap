@@ -9,6 +9,7 @@
         }
     ],
     "require": {
-
+        "tpyo/amazon-s3-php-class": "dev-master",
+        "hybridlogic/validation": "dev-master"
     }
 }
