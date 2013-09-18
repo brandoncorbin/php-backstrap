@@ -1,33 +1,40 @@
-// require.config({
-//   paths: {
-//     'jquery': 'bower_components/jquery/jquery.min',
-//     'underscore': 'bower_components/underscore/underscore',
-//     'backbone': 'bower_components/backbone/backbone',
-//     'bootstrap' : "bower_components/bootstrap/docs/assets/js/bootstrap.min"
-//   }
-// });
+var AppRouter = Backbone.Router.extend({
+	routes: {
+		"": "home"
+	}
+});
+var app_router = new AppRouter;
 
 
-// require.config({
-//   shim: {
-//     underscore: {
-//       exports: '_'
-//     },
-//     backbone: {
-//       deps: ["underscore", "jquery"],
-//       exports: "Backbone"
-//     }
-//   }
-// });
-
-//the "main" function to bootstrap your code
-require(
-	['bower_components/jquery/jquery.min', 
-	  'bower_components/underscore/underscore', 
-	  'bower_components/backbone/backbone',
-	  'bower_components/bootstrap/dist/js/bootstrap.min',
-	  'views/app'
-	 ], function ($, _, Backbone, Bootstrap) {   // or, you could use these deps in a separate module using define
+app_router.on('route:home', function() { 
+	
+	View('home', {
+		data : { name : 'Brandon'},
+		success : function(results) {
+			$('#app').append(results);
+		}
+	});
 
 });
+
+Backbone.history.start();
+
+function modal(options) {
+	var title = (options.title) ? options.title : "The Unknown Modal";
+	var body = (options.body) ? options.body : "No Body Content";
+	var primary_btn_label = (options.primary_btn_label) ? options.primary_btn_label : "The Unknown Modal";
+	var modal = $($('#modal-template').html());
+	$('.modal-title', modal).html(title);
+	$('.modal-body', modal).html(body);
+	$(modal).modal({ backdrop:false });
+
+}
+
+function View(path, options) {
+	var callback = (options.success) ? options.success : function(data) { };
+	var data = (options.data) ? options.data :  { };
+	$.get('views/'+path+'.html', function(html) {
+		callback(_.template(html, data));
+	});
+}
 
