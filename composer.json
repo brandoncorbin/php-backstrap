@@ -1,7 +1,7 @@
 {
-    "name": "jobchi/checkout",
-    "description": "Checkout flow for jobchi boards",
-    "license": "Private",
+    "name": "brandoncorbin/php-backstrap",
+    "description": "Super simple php backbone app",
+    "license": "GPL",
     "authors": [
         {
             "name": "Brandon Corbin",
