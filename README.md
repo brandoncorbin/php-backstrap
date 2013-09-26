@@ -39,9 +39,23 @@ Install Composer:
 ##Starting Docs
 It's rough I know. I'll work on adding more.
 
-##Global Javascript Functions
+## File Descriptions
 
-###View('viewfilename', [options])
+- **/index.html** The base file for your web application
+- **/bower_components** Static asset management with bower
+- **/service/index.php** The main entry point for your server side API calls
+- **/vendor** PHP Library management folder for Composer
+- **/views** Folder containing all of your applications views
+- **/views/partials** Folder for storing commonly reused view items.
+- **/views/layouts** Folder for storing Layout files (header and footer stuff)
+- **routes.js** Where you define all of your pages and their actions 
+
+
+
+###Working with Views 
+
+####Javascript function View('viewfilename', [options])
+
 A very simple view render using EJS. Supports partials, layouts and more. View names are just their path without the .html. **For example:**
 
 - **View('widgets/balls',{})** maps to **/views/widgets/balls.html**
@@ -72,5 +86,36 @@ You can also use the success option to handle the HTML response yourself.
     View('home', {
     	success : function(html) {
     		alert(html);
+    	}
+    });
+
+
+##Building out your API
+Backstrap is meant to have a super simple API interface to do server side work. AN easy way to interact with your server while not having to deal with SOAP, a full MVC stack or a complicated XML feed. 
+
+### /service/index.php 
+
+This is your main access point to your API. In this file you will define the methods your API supports. 
+
+For example, lets say we wanted to get the weather.  We'd need to create a function called res_weather that will responde when we call the API. 
+
+    function res_weather($req) {
+    	// Look up something from Yahoo Weather
+    	return array(
+    		'success'=>true,
+    		'weather'=>'weather data'
+    	);
+    }
+
+ You'll notice the $req being passed into the function. This is the inital page reqest data - including a merged GET and POST data set as well as application path data. var_dump it so learn more.
+
+To access this new Weather call, we'll use the API javascript function.
+
+    // In Javascript
+    API({
+    	action : 'weather',
+    	type : 'GET',
+    	callback : function(data, err) {
+    		console.log(data);
     	}
     });

@@ -21,6 +21,7 @@ function View(path, options) {
 			html = _.template(html, data);
 			if(container!=null) {
 				container.html(html);
+
 			}
 			callback(html);
 			
@@ -80,4 +81,3 @@ function API(options) {
 	})
 
 }
-
