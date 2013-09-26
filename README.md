@@ -42,7 +42,10 @@ It's rough I know. I'll work on adding more.
 ##Global Javascript Functions
 
 ###View('viewfilename', [options])
-A very simple view render using EJS. Supports partials, layouts and more. 
+A very simple view render using EJS. Supports partials, layouts and more. View names are just their path without the .html. **For example:**
+
+- **View('widgets/balls',{})** maps to **/views/widgets/balls.html**
+- **View('home',{})** maps to **/views/home.html**
 
 **Example with a Layout File**
 
@@ -66,7 +69,7 @@ This will grab views/partial/header.html and stick it inside a container with th
 
 You can also use the success option to handle the HTML response yourself. 
 
-    View('partial/header', {
+    View('home', {
     	success : function(html) {
     		alert(html);
     	}
