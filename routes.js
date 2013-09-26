@@ -1,6 +1,7 @@
 var AppRouter = Backbone.Router.extend({
 	routes: {
-		"": "home"
+		"otherpage" 	: "otherpage",
+		""				: "home"
 	}
 });
 var app_router = new AppRouter;
@@ -11,9 +12,17 @@ app_router.on('route:home', function() {
 	View('home', {
 		data : { name : 'Brandon'},
 		layout : 'site',
-		success : function(results) {
-			$('#app').append(results);
-		}
+		container : $('#app')
+	});
+
+});
+
+app_router.on('route:otherpage', function() { 
+	
+	View('otherpage', {
+		data : { name : 'Brandon'},
+		layout : 'site',
+		container : $('#app')
 	});
 
 });

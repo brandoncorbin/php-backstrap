@@ -36,3 +36,38 @@ Install Composer:
     php composer.phar install
 
 
+##Starting Docs
+It's rough I know. I'll work on adding more.
+
+##Global Javascript Functions
+
+###View('viewfilename', [options])
+A very simple view render using EJS. Supports partials, layouts and more. 
+
+**Example with a Layout File**
+
+This will get the code from /views/home.html and /views/layouts/site.html  and merge them together. And thanks to EJS (http://embeddedjs.com/) you include **<%=name%>** in your view, it will be rendered as "**Brandon**".
+
+    View('home', {
+    	data : {name:'Brandon'},
+    	layout : 'site',
+    	container : $('#app')
+    });
+
+**Just a Partial Please**
+
+This will grab views/partial/header.html and stick it inside a container with the ID my-container
+
+    View('partial/header', {
+    	container : $('#my-container')
+    });
+
+**View with no container**
+
+You can also use the success option to handle the HTML response yourself. 
+
+    View('partial/header', {
+    	success : function(html) {
+    		alert(html);
+    	}
+    });

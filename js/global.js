@@ -10,17 +10,36 @@ View Maker
 ***************************************/
 
 function View(path, options) {
-	var callback = (options.success) ? options.success : function(data) { };
-	var data = (options.data) ? options.data :  { };
-	var layout =  (options.layout) ? options.layout :  null;
+	var callback = (options.success) ? options.success : function(data) { },
+		data = (options.data) ? options.data :  { },
+	 	layout =  (options.layout) ? options.layout :  null,
+	 	path = path
+	 	container = (options.container) ? options.container : null;
+
 	$.get('views/'+path+'.html', function(html) {
 		if(layout==null) {
-			callback(_.template(html, data));	
+			html = _.template(html, data);
+			if(container!=null) {
+				container.html(html);
+			}
+			callback(html);
+			
 		} else {
 			data.body_content = _.template(html, data)
-			$.get('views/layouts/'+layout+'.html', function(layouthtml) { 
-				callback(_.template(layouthtml, data));
-			});
+			if(layout!=null) {
+				$.get('views/layouts/'+layout+'.html', function(layouthtml) { 
+					html = _.template(layouthtml, data)
+					if(container!=null) {
+						container.html(html);
+					}
+					callback(html);
+					
+					$('body').addClass(layout).addClass(path);
+				});
+			} else {
+				callback(data.body_content);
+			}
+			
 		}
 		
 	});
