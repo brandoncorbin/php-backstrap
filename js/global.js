@@ -60,3 +60,24 @@ function modal(options) {
 
 }
 
+function API(options) {
+	var callback = (options.callback) ? options.callback : function(response) { },
+	 	type = (options.type) ? options.type : 'GET',
+	 	action = (options.action) ? options.action : 'GET',
+	 	data = (options.data) ? options.data : {};
+
+	$.ajax({
+		url : 'service/?action='+action,
+		type : type,
+		data : data,
+		dataType : 'JSON',
+		success : function(data) {
+			callback(data, null);	
+		},
+		error : function() {
+			callback(null, 'error');
+		}
+	})
+
+}
+

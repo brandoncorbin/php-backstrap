@@ -27,11 +27,20 @@ and they will be mermged in to a $req object
 ***************************************/
 
 function res_default($req) {
-	return [
+	return array(
 			'success'=>true,
 			'message'=>'Welcome'
-		];
+			);
 }
+
+function res_sample($req) {
+	return array(
+		'date' => time(),
+		'message' => 'Hi there!'
+	);
+}
+
+
 
 header("Content-Type:application/json");
 echo json_encode($return);
