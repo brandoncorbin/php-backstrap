@@ -1,0 +1,15 @@
+{
+    "name": "brandoncorbin/php-backstrap",
+    "description": "Super simple php backbone app",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Brandon Corbin",
+            "email": "apps@icorbin.com"
+        }
+    ],
+    "require": {
+        "tpyo/amazon-s3-php-class": "dev-master",
+        "hybridlogic/validation": "dev-master"
+    }
+}

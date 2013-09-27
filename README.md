@@ -25,6 +25,10 @@ Install Composer:
      
     curl -sS https://getcomposer.org/installer | php
 
+Install Bower (optional):
+
+    npm install -g bower
+
 ###Installing Backstrap
 
 ####Download 
@@ -33,6 +37,7 @@ Install Composer:
 
 ####Installing
 
+    cd lib/
     php composer.phar install
 
 
@@ -41,15 +46,14 @@ It's rough I know. I'll work on adding more.
 
 ## File Descriptions
 
+- **routes.js** Where you define all of your pages and their actions 
 - **/index.html** The base file for your web application
-- **/bower_components** Static asset management with bower
 - **/service/index.php** The main entry point for your server side API calls
-- **/vendor** PHP Library management folder for Composer
 - **/views** Folder containing all of your applications views
 - **/views/partials** Folder for storing commonly reused view items.
 - **/views/layouts** Folder for storing Layout files (header and footer stuff)
-- **routes.js** Where you define all of your pages and their actions 
-
+- **/libs/bower_components** Static asset management with bower
+- **/libs/vendor** PHP Library management folder for Composer
 
 
 ###Working with Views 

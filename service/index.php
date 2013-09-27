@@ -1,6 +1,6 @@
 <?php
 // Load Requires
-require '../vendor/autoload.php';
+require '../libs/vendor/autoload.php';
 use HybridLogic\Validation\Validator;
 use HybridLogic\Validation\Rule;
 
