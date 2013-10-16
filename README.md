@@ -48,7 +48,8 @@ It's rough I know. I'll work on adding more.
 
 - **routes.js** Where you define all of your pages and their actions 
 - **/index.html** The base file for your web application
-- **/service/index.php** The main entry point for your server side API calls
+- **/api/index.php** The main entry point for your server side API calls
+- **/api/env.php** Enviornmental settings
 - **/views** Folder containing all of your applications views
 - **/views/partials** Folder for storing commonly reused view items.
 - **/views/layouts** Folder for storing Layout files (header and footer stuff)
@@ -97,7 +98,7 @@ You can also use the success option to handle the HTML response yourself.
 ##Building out your API
 Backstrap is meant to have a super simple API interface to do server side work. AN easy way to interact with your server while not having to deal with SOAP, a full MVC stack or a complicated XML feed. 
 
-### /service/index.php 
+### /api/index.php 
 
 This is your main access point to your API. In this file you will define the methods your API supports. 
 

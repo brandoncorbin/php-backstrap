@@ -10,7 +10,7 @@ var app_router = new AppRouter;
 app_router.on('route:home', function() { 
 	
 	View('home', {
-		data : { name : 'Brandon'},
+		data : { name : 'DUDE'},
 		layout : 'site',
 		container : $('#app'),
 		success : function(html) { 
@@ -25,7 +25,7 @@ app_router.on('route:home', function() {
 						}
 					});
 				}
-			});
+			}); // End getting the Partial
 		}
 	});
 

@@ -68,7 +68,7 @@ function API(options) {
 	 	data = (options.data) ? options.data : {};
 
 	$.ajax({
-		url : 'service/?action='+action,
+		url : 'api/?action='+action,
 		type : type,
 		data : data,
 		dataType : 'JSON',
